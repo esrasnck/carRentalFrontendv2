@@ -1,6 +1,6 @@
-<div class="collapse show" id="dash-collapse">
-  <div class="collapse show" id="home-collapse">
-    <div class="card-header"><label for="colorFilter" class="form-label">Renk Ara Bug var</label>
+
+  <div class="collapse show" id="color-collapse">
+    <div class="card-header"><label for="colorFilter" class="form-label">Renk Ara</label>
       <input
         type="text"
         class="form-control"
@@ -10,6 +10,6 @@
       />
     </div>
     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-      <li *ngFor="let color of colors"> <a href="#" class="link-dark rounded">{{color.colorName}}</a></li>
+      <li *ngFor="let color of colors"> <a routerLink="/cardetails/color/{{color.colorId}}" class="link-dark rounded">{{color.colorName}}</a></li>
     </ul>
   </div>

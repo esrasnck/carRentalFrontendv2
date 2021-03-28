@@ -1,10 +1,9 @@
 
-
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
 <div *ngFor="let cardetail of cardetails" class="card mr-2"  [ngClass]="cardetail.isRentable ? 'online' : 'offline'" style="width: 18rem;margin-right: 10px;">
-    <img *ngIf="cardetail.imagePath" [src]="imageUrl+cardetail.imagePath" class="card-img-top" alt="...">
-    <img *ngIf="!cardetail.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top" alt="...">
+    <img *ngIf="cardetail.imagePath" [src]="imageUrl+cardetail.imagePath" class="card-img-top" style="object-fit: cover;" alt="...">
+    <img *ngIf="!cardetail.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top"  style="object-fit: cover;"alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ cardetail.carName }}</h5>
       <p class="card-text">Acıklama Gelecek </p>
@@ -12,6 +11,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ cardetail.modelYear }}</li>
       <li class="list-group-item">{{ cardetail.colorName }} </li>
+      <li class="list-group-item">{{ cardetail.brandName }}</li>
       <li class="list-group-item">{{ cardetail.carName }}</li>
       <li class="list-group-item">{{ cardetail.dailyPrice }}</li>
       <!-- <li class="list-group-item">{{ cardetail.isRentable }} </li> -->

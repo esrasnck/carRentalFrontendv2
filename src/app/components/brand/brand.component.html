@@ -1,4 +1,4 @@
-<div class="collapse show" id="home-collapse">
+<div class="collapse show" id="brand-collapse">
   <div class="card-header"><label for="colorFilter" class="form-label">Model Ara</label>
     <input
       type="text"
@@ -9,7 +9,7 @@
     />
   </div>
 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-      <li *ngFor="let brand of brands"> <a href="#" class="link-dark rounded">{{brand.brandName}}</a></li>
+      <li *ngFor="let brand of brands"> <a routerLink="/cardetails/brand/{{brand.brandId}}" class="link-dark rounded">{{brand.brandName}}</a></li>
   </ul>
 </div>
 

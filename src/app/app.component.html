@@ -10,13 +10,13 @@
   </a>
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#color-collapse" aria-expanded="true">
        Renkler 
       </button>
    <app-color></app-color>
     </li>
     <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#brand-collapse" aria-expanded="true">
         Modeller </button>
         <app-brand></app-brand>
    </li>
@@ -44,7 +44,7 @@
    <!--   <app-color></app-color> -->
     </div>
     <div class="col-md-9">
-     <app-cardetail></app-cardetail>
+      <router-outlet></router-outlet> 
     </div>
   </div>
 </div>
@@ -52,5 +52,3 @@
 
 
 
-
-<router-outlet></router-outlet>

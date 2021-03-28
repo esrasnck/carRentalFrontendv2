@@ -10,6 +10,7 @@ import { ColorService } from '../services/color.service';
 export class ColorComponent implements OnInit {
  
   colors:Color[]=[]
+  currentColor:Color
 
   constructor(private colorService:ColorService) { }
 
@@ -20,6 +21,7 @@ export class ColorComponent implements OnInit {
   getColors(){
     this.colorService.getColors().subscribe((response)=>{
       this.colors =response.data;
+      console.log(this.colors)
       
     })
 
