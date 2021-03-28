@@ -1,0 +1,43 @@
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div *ngFor="let image of carImage; index as i; first as firstImage" [ngClass]="{ active: firstImage }" class="carousel-item" [class.active]="true" data-bs-interval="10000">
+        <img [src]="getImagePath(image.imagePath)" class="d-block w-100" [alt]="getImagePath(image.imagePath)">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  
+  </div>
+  <div>
+  <ul *ngIf="cardetails" class="list-group list-group-flush">
+    <li class="list-group-item">Brand Name: {{cardetails.brandName}}</li>
+    <li class="list-group-item">Color Name: {{cardetails.colorName}}</li>
+    <li class="list-group-item">Model Year: {{cardetails.modelYear}}</li>
+    <li class="list-group-item">Car Name: {{cardetails.carName}}</li>
+    <li class="list-group-item">Daily Price: {{ cardetails.dailyPrice }}</li>
+    <li class="list-group-item">Description :  {{cardetails.description }}</li>
+    <br>
+  </ul>
+
+</div>
+  <div class="row" >
+    <div class="col-md-8"></div>
+  <div class="btn-goback col-md-2">
+    <button style="float:right" routerLink="/cardetails" type="button" class="btn btn-xs btn-primary">
+      Geri Dön
+    </button>
+  </div>
+  <div class="btn-goback col-md-2" >
+    <button style="float:right" routerLink="/rentaldetails" type="button" class="btn btn-xs btn-success">
+      Kirala
+    </button>
+  </div>
+</div>
+

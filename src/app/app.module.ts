@@ -8,6 +8,7 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
     BrandComponent,
     ColorComponent,
     CardetailComponent,
+    CardetailimageComponent,
 
   ],
   imports: [

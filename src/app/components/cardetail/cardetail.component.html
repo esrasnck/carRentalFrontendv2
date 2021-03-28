@@ -2,8 +2,8 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
 <div *ngFor="let cardetail of cardetails" class="card mr-2"  [ngClass]="cardetail.isRentable ? 'online' : 'offline'" style="width: 18rem;margin-right: 10px;">
-    <img *ngIf="cardetail.imagePath" [src]="imageUrl+cardetail.imagePath" class="card-img-top" style="object-fit: cover;" alt="...">
-    <img *ngIf="!cardetail.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top"  style="object-fit: cover;"alt="...">
+    <img *ngIf="cardetail.imagePath" [src]="imageUrl+cardetail.imagePath" class="card-img-top" style="object-fit: cover;"width="100" height="50%" alt="...">
+    <img *ngIf="!cardetail.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top"  style="object-fit: cover;"width="100" height="50%"alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ cardetail.carName }}</h5>
       <p class="card-text">Acıklama Gelecek </p>
@@ -18,7 +18,7 @@
     </ul>
     <div class="card-body">
     <div class="row">
-      <button type="button" class="btn btn-outline-danger">Araba Detay</button>
+      <button type="button" routerLink="/cardetails/cardetailimage/{{ cardetail.carId }}"class="btn btn-outline-danger">Araba Detay</button>
       <button type="button" class="btn btn-outline-warning">Müşteri Listesi</button>
       <button type="button" class="btn btn-outline-info">Kira Listesi</button>
     </div>
