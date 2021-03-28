@@ -1,0 +1,22 @@
+<div *ngIf="dataLoaded==false" class="alert alert-danger" role="alert">
+    <p>Aracı Henüz Kiralayan bulunmamaktadır.</p>
+    <button type="button" class="btn btn-outline-secondary">Kirala</button>
+  </div>
+
+<table *ngIf="dataLoaded==true" class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Şirket adı</th>
+        <th scope="col">Müşteri Adı-Soyadı</th>
+        <th scope="col">Müşteri Detaya Git</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customerDetail of customerDetails">
+        <td>{{customerDetail?.companyName}}</td>
+        <td>{{customerDetail?.customerName}}</td>
+        <td><button type="button" class="btn btn-outline-primary">Müşteri Detay</button></td>
+      </tr>
+    </tbody>
+  </table>
+
