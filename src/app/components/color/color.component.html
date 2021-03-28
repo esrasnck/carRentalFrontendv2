@@ -1,0 +1,15 @@
+<div class="collapse show" id="dash-collapse">
+  <div class="collapse show" id="home-collapse">
+    <div class="card-header"><label for="colorFilter" class="form-label">Renk Ara Bug var</label>
+      <input
+        type="text"
+        class="form-control"
+        id="colorFilter"
+        placeholder="Arama ifadesi giriniz.."
+       
+      />
+    </div>
+    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+      <li *ngFor="let color of colors"> <a href="#" class="link-dark rounded">{{color.colorName}}</a></li>
+    </ul>
+  </div>
