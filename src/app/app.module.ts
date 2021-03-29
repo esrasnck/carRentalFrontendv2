@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 import { CustomerdetailComponent } from './components/customerdetail/customerdetail.component';
+import { FormsModule } from '@angular/forms';
+import { ColorPipePipe } from './components/pipes/color-pipe.pipe';
+import { BrandPipePipe } from './components/pipes/brand-pipe.pipe';
+import { CardetailPipePipe } from './components/pipes/cardetail-pipe.pipe';
 
 
 @NgModule({
@@ -21,12 +25,16 @@ import { CustomerdetailComponent } from './components/customerdetail/customerdet
     CardetailComponent,
     CardetailimageComponent,
     CustomerdetailComponent,
+    ColorPipePipe,
+    BrandPipePipe,
+    CardetailPipePipe,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

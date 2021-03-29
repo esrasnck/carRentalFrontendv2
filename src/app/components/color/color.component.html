@@ -6,10 +6,11 @@
         class="form-control"
         id="colorFilter"
         placeholder="Arama ifadesi giriniz.."
+        [(ngModel)]="colorFilter"
        
       />
     </div>
     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-      <li *ngFor="let color of colors"> <a routerLink="/cardetails/color/{{color.colorId}}" class="link-dark rounded">{{color.colorName}}</a></li>
+      <li *ngFor="let color of colors | colorPipe:colorFilter"> <a routerLink="/cardetails/color/{{color.colorId}}" class="link-dark rounded">{{color.colorName}}</a></li>
     </ul>
   </div>
