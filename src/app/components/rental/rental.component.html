@@ -1,0 +1,39 @@
+
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#rentalModal" id="ceren"style="float:right">
+  Kirala
+  </button>
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rentalModalLabel">Araç Kiralama</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group" style="margin-bottom: 15px;">
+              <label for="customer">Müşteriler</label>
+              <select [(ngModel)]="customerId" class="form-select" aria-label="Default select example" [ngModelOptions]="{ standalone: true }"> 
+                <option  *ngFor="let custormerDetail of custormerDetails" [value]="custormerDetail.customerId" >{{custormerDetail.companyName}}</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+              <label for="rentDate">Kiralama Tarihi</label>
+              <input [(ngModel)]="rentDate"  type="datetime-local" class="form-control" id="rentDate" name="rentDate">
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+              <label for="returnDate">Geri Dönüş Tarihi</label>
+              <input [(ngModel)]="returnDate" type="datetime-local" class="form-control" id="returnDate" name="returnDate">
+            </div>
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <a (click)="createNewRental()">  <app-payment [rents]="rentals" ></app-payment> </a> 
+        </div>
+      </div>
+    </div>
+  </div>

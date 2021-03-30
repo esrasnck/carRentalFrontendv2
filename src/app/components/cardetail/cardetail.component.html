@@ -14,7 +14,8 @@
 <br>
 <div class="row">
   <div class="col-md-4">
-    <select [(ngModel)]="brandFilter" class="form-select" aria-label="Marka Seçiniz">
+    <select [(ngModel)]="brandFilter" class="form-select" aria-placeholder="Marka Seçiniz">
+      <option selected> ceren ile bulacağız </option>
       <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">{{brand.brandName}}</option>
     </select>
   </div>

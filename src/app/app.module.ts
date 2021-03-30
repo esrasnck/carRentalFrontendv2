@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { ColorPipePipe } from './components/pipes/color-pipe.pipe';
 import { BrandPipePipe } from './components/pipes/brand-pipe.pipe';
 import { CardetailPipePipe } from './components/pipes/cardetail-pipe.pipe';
+import { RentalComponent } from './components/rental/rental.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -28,13 +33,19 @@ import { CardetailPipePipe } from './components/pipes/cardetail-pipe.pipe';
     ColorPipePipe,
     BrandPipePipe,
     CardetailPipePipe,
+    RentalComponent,
+    PaymentComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-top-right"
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
