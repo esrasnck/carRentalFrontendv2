@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarDetail } from 'src/app/models/cardetail';
+import { CarImage } from 'src/app/models/carImage';
 import { environment } from 'src/environments/environment';
-import { CarDetail } from '../models/cardetail';
-import { CarImage } from '../models/carImage';
-import { CardetailService } from '../services/cardetail.service';
-import { CarimageService } from '../services/carimage.service';
+
+import { CardetailService } from '../../services/cardetail.service';
+import { CarimageService } from '../../services/carimage.service';
 
 @Component({
   selector: 'app-cardetailimage',

@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { CarDetail } from '../models/cardetail';
 
+
 @Pipe({
   name: 'cardetailPipe'
 })

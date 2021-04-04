@@ -15,12 +15,13 @@
 <div class="row">
   <div class="col-md-4">
     <select [(ngModel)]="brandFilter" class="form-select" aria-placeholder="Marka Seçiniz">
-      <option selected> ceren ile bulacağız </option>
+      <option value=0>Marka Seç</option> 
       <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">{{brand.brandName}}</option>
     </select>
   </div>
   <div class="col-md-4">
     <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example"> 
+      <option value=0>Renk Seç</option> 
       <option  *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)" >{{color.colorName}}</option>
     </select>
   </div>
@@ -49,6 +50,7 @@
       <li class="list-group-item">{{ cardetail.brandName }}</li>
       <li class="list-group-item">{{ cardetail.carName }}</li>
       <li class="list-group-item">{{ cardetail.dailyPrice }}</li>
+      <li class="list-group-item">{{ cardetail.description}}</li>
       <!-- <li class="list-group-item">{{ cardetail.isRentable }} </li> -->
     </ul>
     <div class="card-body">

@@ -10,14 +10,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 import { CustomerdetailComponent } from './components/customerdetail/customerdetail.component';
-import { FormsModule } from '@angular/forms';
-import { ColorPipePipe } from './components/pipes/color-pipe.pipe';
-import { BrandPipePipe } from './components/pipes/brand-pipe.pipe';
-import { CardetailPipePipe } from './components/pipes/cardetail-pipe.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ColorPipePipe } from './pipes/color-pipe.pipe';
+import { BrandPipePipe } from './pipes/brand-pipe.pipe';
+import { CardetailPipePipe } from './pipes/cardetail-pipe.pipe';
 import { RentalComponent } from './components/rental/rental.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BrandAddComponent } from './components/admin/add/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/admin/add/color-add/color-add.component';
+import { CarAddComponent } from './components/admin/add/car-add/car-add.component';
+import { CardetaillistComponent } from './components/admin/cardetaillist/cardetaillist.component';
+
 
 
 
@@ -35,6 +40,10 @@ import { ToastrModule } from 'ngx-toastr';
     CardetailPipePipe,
     RentalComponent,
     PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CarAddComponent,
+    CardetaillistComponent,
 
   ],
   imports: [
@@ -42,8 +51,9 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
-      positionClass:"toast-top-right"
+      positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule
   ],

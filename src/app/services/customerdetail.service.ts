@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CustomerDetail } from '../models/customerdetail';
 import { ListResponseModel } from '../models/listResponseModel';
 
+
 @Injectable({
   providedIn: 'root'
 })

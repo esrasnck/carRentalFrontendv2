@@ -1,10 +1,10 @@
 
-<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#paymentModal" style="float:right">
+<button type="button" class="btn btn-outline-success" (click)='goToPayment()' data-bs-toggle="modal" data-bs-dismiss="#rentalModal" data-bs-target="#paymentModal" style="float:right">
   Ödeme Yap
     </button>
    
     <!-- Modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal fade w-100" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true" *ngIf="state !== 1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

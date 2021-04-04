@@ -1,12 +1,13 @@
-import { ElementSchemaRegistry } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Brand } from '../models/brand';
-import { CarDetail } from '../models/cardetail';
-import { Color } from '../models/color';
-import { BrandService } from '../services/brand.service';
-import { CardetailService } from '../services/cardetail.service';
-import { ColorService } from '../services/color.service';
+import { Brand } from 'src/app/models/brand';
+import { CarDetail } from 'src/app/models/cardetail';
+import { Color } from 'src/app/models/color';
+
+import { BrandService } from '../../services/brand.service';
+import { CardetailService } from '../../services/cardetail.service';
+import { ColorService } from '../../services/color.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -17,8 +18,8 @@ export class CardetailComponent implements OnInit {
   cardetails: CarDetail[] = [];
   brands: Brand[] = [];
   colors: Color[] = [];
-  brandFilter: number;
-  colorFilter: number;
+  brandFilter: number=0;
+  colorFilter: number=0;
   cardetailFilter='';
  
 

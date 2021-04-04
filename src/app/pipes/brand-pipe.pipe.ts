@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Brand } from '../models/brand';
 
+
 @Pipe({
   name: 'brandPipe'
 })

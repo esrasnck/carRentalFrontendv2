@@ -1,0 +1,73 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Araba Ekle</h5></div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+              <div class="form-group">
+                <label for="carName" class="col-sm-2 col-form-label col-form-label-sm">Araba İsmi</label>
+               <input type="text"
+                id="carName" 
+               formControlName="carName"
+               class="form-control"
+               placeholder="Araba Adı"/>
+              </div>
+              <div class="form-group">
+                <label for="modelYear" class="col-sm-2 col-form-label col-form-label-sm">Model Yılı</label>
+                <input type="text"
+                 id="modelYear" 
+                formControlName="modelYear"
+                class="form-control"
+                placeholder="Model yılı"/>
+               </div>
+               <div class="form-group">
+                <label for="dailyPrice" class="col-sm-2 col-form-label col-form-label-sm">Günlük Fiyat</label>
+                <input type="number"
+                 id="dailyPrice" 
+                formControlName="dailyPrice"
+                class="form-control"
+                placeholder="Günlük Fiyat"/>
+               </div>
+               <div class="form-group">
+                <label for="description" class="col-sm-2 col-form-label col-form-label-sm">Açıklama</label>
+                <input type="text"
+                 id="description" 
+                formControlName="description"
+                class="form-control"
+                placeholder="Açıklama"/>
+               </div>
+             
+               <div class="form-group">
+                <label for="findeks" class="col-sm-2 col-form-label col-form-label-sm">Findeks</label>
+                <input type="number"
+                 id="findeks" 
+                formControlName="findeks"
+                class="form-control"
+                placeholder="Findeks numarası"/>
+               </div>
+               <div class="row">
+                <div class="col-md-6">
+                  <label for="Renk" class="col-sm-2 col-form-label col-form-label-sm">Renk</label>
+                    <select formControlName="colorId"  class="form-select" aria-label="Renk Seçiniz"> 
+                        <option [ngValue]=0>Renk Seç</option> 
+                      <option [ngValue]="color.colorId" *ngFor="let color of colors" >{{color.colorName}}</option>
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="Marka" class="col-sm-2 col-form-label col-form-label-sm">Marka</label>
+                    <select formControlName="brandId" class="form-select" aria-placeholder="Marka Seçiniz">
+                        <option [ngValue]=0>Marka Seç</option>
+                        <option [ngValue]="brand.brandId" *ngFor="let brand of brands"  >{{brand.brandName}}</option>
+                      </select>
+                  </div>
+
+               </div>
+              <br>
+               <button style="float:right" type="button" (click)="addCar()" class="btn btn-outline-info">Araba Ekle </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+

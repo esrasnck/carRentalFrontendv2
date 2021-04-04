@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Payment } from '../models/payment';
-import { Rental } from '../models/rental';
-import { PaymentService } from '../services/payment.service';
-import { RentalService } from '../services/rental.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Payment } from 'src/app/models/payment';
+import { Rental } from 'src/app/models/rental';
+
+import { PaymentService } from '../../services/payment.service';
+import { RentalService } from '../../services/rental.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,8 +18,10 @@ export class PaymentComponent implements OnInit {
   price:number;
 
  @Input() rents:Rental
+ @Input() state:number
+ @Output() changeState = new EventEmitter()
 
-  constructor(private paymentService:PaymentService, private rentalService:RentalService) { }
+  constructor(private paymentService:PaymentService, private rentalService:RentalService,private toasterService:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -31,15 +35,27 @@ export class PaymentComponent implements OnInit {
     money:this.price
   };
   this.paymentService.addPayment(payment).subscribe(response=>{
+    if (response.success) {
+      this.toasterService.success("ödeme alındı")
+      
+    }
+   else {
+     this.toasterService.error("ödeme alınamadı.")
+   }
+
     console.log("odeme yapıldı");
   
   })
   this.rentalService.addRental(this.rents).subscribe(response=>{
+    this.toasterService.success("araba kiralandı")
     console.log("thnk yu ceren");
   })
 
   }
 
-  
+  goToPayment(){
+    this.state = 2
+    this.changeState.emit(this.state)
+  }
 
 }

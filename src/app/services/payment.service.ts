@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Payment } from '../models/payment';
 import { ResponseModel } from '../models/responseModel';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,8 @@ export class PaymentService {
   addPayment(payment:Payment):Observable<ResponseModel>{
     let newPath = this.apiUrl + "Cards/Add";
     return this.httpClient.post<ResponseModel>(newPath,payment);
+
+    //Response dönmesi gerekiyor. sıkıntı o.
   }
 
 }

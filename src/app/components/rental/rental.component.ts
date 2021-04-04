@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CarDetail } from '../models/cardetail';
-import { CustomerDetail } from '../models/customerdetail';
-import { Rental } from '../models/rental';
-import { CustomerdetailService } from '../services/customerdetail.service';
+import { CarDetail } from 'src/app/models/cardetail';
+import { CustomerDetail } from 'src/app/models/customerdetail';
+import { Rental } from 'src/app/models/rental';
+
+import { CustomerdetailService } from '../../services/customerdetail.service';
 
 @Component({
   selector: 'app-rental',
@@ -14,7 +15,7 @@ export class RentalComponent implements OnInit {
   customerId:number;
   rentDate:Date;
   returnDate:Date;
-
+  state:number=1;
   rentals:Rental;
 
   @Input() carforRent:CarDetail  // I Love U Ceren Bıdık <3 :)
@@ -42,6 +43,10 @@ export class RentalComponent implements OnInit {
     }
     this.rentals = rental;
     console.log(this.rentals);
+   }
+
+   changeState(e:any){
+     this.state = e
    }
   
 }

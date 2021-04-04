@@ -1,10 +1,10 @@
 
-<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#rentalModal" id="ceren"style="float:right">
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#rentalModal" style="float:right">
   Kirala
   </button>
  
   <!-- Modal -->
-  <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true">
+  <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true"  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -32,7 +32,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <a (click)="createNewRental()">  <app-payment [rents]="rentals" ></app-payment> </a> 
+      <a (click)="createNewRental()"><app-payment (changeState)='changeState($event)' [state]='state' [rents]="rentals" ></app-payment> </a> 
         </div>
       </div>
     </div>
