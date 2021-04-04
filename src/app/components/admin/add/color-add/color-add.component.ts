@@ -35,10 +35,18 @@ export class ColorAddComponent implements OnInit {
     this.colorService.add(colorModel).subscribe(response=>{
       console.log(response)
       this.toastrService.success(response.message,"başarılı")
-    },responseError=>{
-      console.log(responseError.error)
-      this.toastrService.error(responseError.error)
-    })
+    }, (responseError) => {
+      if (responseError.error.Errors.length > 0) {
+        console.log(responseError.error.Errors);
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(
+            responseError.error.Errors[i].ErrorMessage,
+            'Doğrulama hatası'
+          );
+        }
+      }
+    }
+  );
     }
     else{
       this.toastrService.error("Form Eksik","dikkat")
