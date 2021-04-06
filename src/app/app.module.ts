@@ -22,6 +22,14 @@ import { BrandAddComponent } from './components/admin/add/brand-add/brand-add.co
 import { ColorAddComponent } from './components/admin/add/color-add/color-add.component';
 import { CarAddComponent } from './components/admin/add/car-add/car-add.component';
 import { CardetaillistComponent } from './components/admin/cardetaillist/cardetaillist.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { JwtModule } from "@auth0/angular-jwt";
+
+ 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 
 
@@ -44,6 +52,8 @@ import { CardetaillistComponent } from './components/admin/cardetaillist/cardeta
     ColorAddComponent,
     CarAddComponent,
     CardetaillistComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -54,6 +64,12 @@ import { CardetaillistComponent } from './components/admin/cardetaillist/cardeta
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["http://localhost:4200/"]
+      },
     }),
     BrowserAnimationsModule
   ],

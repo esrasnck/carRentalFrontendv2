@@ -8,6 +8,8 @@ import { CardetaillistComponent } from './components/admin/cardetaillist/cardeta
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 import { CustomerdetailComponent } from './components/customerdetail/customerdetail.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path:"admin/brands/add",component:BrandAddComponent},
   {path:"admin/colors/add",component:ColorAddComponent},
   {path:"admin/cars/add",component:CarAddComponent},
-  {path:"admin/cardetails",component:CardetaillistComponent}
+  {path:"admin/cardetails",component:CardetaillistComponent},
+  {path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent}
 
 ];
 

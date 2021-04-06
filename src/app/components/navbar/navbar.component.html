@@ -3,12 +3,24 @@
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Aranacak Kelimeyi Giriniz..." aria-label="Search">
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Çıkış Yap</a>
-      </li>
-    </ul>
+    <div class="row offset-8 col-md-2">
+      <div class="col-md-6" style="float:right">
+        <button *ngIf="!isAuthenticated()" type="button" class="btn btn btn-outline-secondary" routerLink="login" >Sign In</button>
+      </div>
+      <div class="col-md-6">
+        <button *ngIf="!isAuthenticated()" type="button" class="btn btn btn-outline-secondary" routerLink="register" >Sign Up</button>
+      </div>
+      <div class="btn-group" style="margin-left: -15px" *ngIf="isAuthenticated()">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{userInfo?.userName}}
+        </button>
+        <ul class="dropdown-menu w-100 text-center" >
+
+          <li class="btn dropdown-item" (click)="goToAdminEdit()" > Edit Profile </li>
+          <li class="btn dropdown-item" (click)="logout()"> Log Out </li>
+        </ul>
+      </div>
+    </div>
     <br>
   </header>
   
