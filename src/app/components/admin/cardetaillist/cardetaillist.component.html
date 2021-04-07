@@ -8,8 +8,8 @@
             <tr>
               
               <th scope="col">Araba Adı</th>
-              <th scope="col">Renk Adı</th>
-              <th scope="col">Marka Adı</th>
+              <th scope="col">Renk Numarası</th>
+              <th scope="col">Marka Numarası</th>
               <th scope="col">Günlük Fiyatı</th>
               <th scope="col">Açıklması</th>
               <th scope="col">Findeks Skoru</th>
@@ -18,11 +18,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let car of cardetails">
+            <tr *ngFor="let car of cars">
               
               <td>{{car.carName}}</td>
-              <td>{{car.colorName}}</td>
-              <td>{{car.brandName }}</td>
+              <td>{{car.colorId}}</td>
+              <td>{{car.brandId }}</td>
               <td>{{car.dailyPrice }}</td>
               <td>{{car.description}}</td>
               <td>Findeks Skoru</td>
@@ -32,7 +32,7 @@
                 </button>
               </td>
               <td>
-                <button type="button" class="btn btn-outline-danger">
+                <button type="button" (click)="removeCar(car)" class="btn btn-outline-danger">
                   Sil
                 </button>
               </td>
@@ -69,7 +69,7 @@
                   </button>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-outline-danger">
+                  <button type="button" (click)="removeColor(color)" class="btn btn-outline-danger">
                     Sil
                   </button>
                 </td>

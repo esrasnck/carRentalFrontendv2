@@ -30,21 +30,10 @@ export class BrandService {
   }
 
   deleteBrand(brand:Brand):Observable<ResponseModel>{
-    console.log(brand)
-    debugger;
-    return this.httpClient.post<ResponseModel>(this.apiUrl+"brands/Deleted",brand);
-    debugger;
-    console.log(brand)
-
+    
+   let newPath=this.apiUrl+"brands/Deleted"
+    return this.httpClient.post<ResponseModel>(newPath,brand)
+  
   }
 }
 
-
-/*
-  getBrands(){
-   this.httpClient.get<ListResponseModel<Brand>>(this.apiUrl+'brands/BrandList').subscribe(response=> {
-  this.brand= response.data;
-    });
-  } */
-
-//https://localhost:44319/api/

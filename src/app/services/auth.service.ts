@@ -74,7 +74,7 @@ export class AuthService {
         let claimInfo = Object.keys(decodedToken).filter(x=> x.endsWith('/role'))[0]
         let roles= decodedToken[claimInfo];
 
-        let emailInfo= decodedToken.email; // kübrama sor
+        let emailInfo= decodedToken.email; 
 
         this.user={
           userId:userId,

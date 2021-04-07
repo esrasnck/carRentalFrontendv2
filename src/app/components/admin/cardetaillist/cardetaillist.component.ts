@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/cardetail';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
@@ -18,16 +20,27 @@ export class CardetaillistComponent implements OnInit {
  color:Color;
  brands:Brand[]=[];
  brand:Brand;
+ car:Car;
+ cars:Car[]=[];
+
 
   constructor(private cardetailService:CardetailService,
     private brandService:BrandService,
-    private colorService:ColorService) { }
+    private colorService:ColorService,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.getColors();
     this.getBrands();
     this.getCarDetails();
+    this.getCars();
 
+  }
+  
+  getCars(){
+    this.cardetailService.getCars().subscribe(response=>{
+      this.cars =response.data;
+    })
   }
 
   getCarDetails() {
@@ -65,13 +78,36 @@ export class CardetaillistComponent implements OnInit {
   
     removeBrand(brand:Brand){
       console.log(brand)
-      debugger;
-      this.brandService.deleteBrand(brand);
-      // toastr ı entegra et
-      console.log(brand)
-      debugger;
+   
+      this.brandService.deleteBrand(brand).subscribe(response=>{
+        this.toastrService.success("gitti")
+      },responseError=>{
+        this.toastrService.error(responseError.errors,"Marka silinemedi");
+      });
+     
+    
     }
     
+    removeCar(car:Car){
+      this.cardetailService.deleteCar(car).subscribe(response=>{
+        this.toastrService.success("silindi")
+        console.log("deneme")
+      },responseError=>{
+
+        this.toastrService.error(responseError.errors,"Arac silinemedi");
+        
+      })
+    }
+   
+    removeColor(color:Color){
+      this.colorService.deleteColor(color).subscribe(response=>{
+        this.toastrService.success("silindi")
+      },responseError=>{
+        this.toastrService.error(responseError.errors,"renk silinemedi");
+        
+      })
+    }
+
 
   
 }

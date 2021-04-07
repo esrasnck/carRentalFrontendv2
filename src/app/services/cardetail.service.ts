@@ -17,6 +17,10 @@ export class CardetailService {
 
   constructor(private httpClient:HttpClient) { }
 
+  getCars():Observable<ListResponseModel<Car>>{
+    return this.httpClient.get<ListResponseModel<Car>>(this.apiUrl+'cars/GetAllCar');
+  }
+
   getCarDetails():Observable<ListResponseModel<CarDetail>>{
     return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + 'cars/GetCarDetails');
   }
@@ -43,6 +47,13 @@ export class CardetailService {
   
   add(car:Car):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "cars/CarAdd",car)
+  }
+
+  deleteCar(car:Car):Observable<ResponseModel>{
+   
+   let newPath=this.apiUrl+"cars/CarDelete"
+    return this.httpClient.post<ResponseModel>(newPath,car)
+  
   }
  
 }

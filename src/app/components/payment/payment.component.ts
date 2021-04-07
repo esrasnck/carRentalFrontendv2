@@ -35,21 +35,16 @@ export class PaymentComponent implements OnInit {
     money:this.price
   };
   this.paymentService.addPayment(payment).subscribe(response=>{
-    if (response.success) {
-      this.toasterService.success("ödeme alındı")
+   
+      this.rentalService.addRental(this.rents).subscribe(response=>{
+        this.toasterService.success("araba kiralandı")
       
-    }
-   else {
-     this.toasterService.error("ödeme alınamadı.")
-   }
+      },responseError=>{
+         this.toasterService.error(responseError.errors,"araba kiralanamadı")
+      })
 
-    console.log("odeme yapıldı");
-  
   })
-  this.rentalService.addRental(this.rents).subscribe(response=>{
-    this.toasterService.success("araba kiralandı")
-    console.log("thnk yu ceren");
-  })
+
 
   }
 
