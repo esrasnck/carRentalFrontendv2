@@ -27,7 +27,7 @@
               <td>{{car.description}}</td>
               <td>Findeks Skoru</td>
               <td>
-                <button type="button" class="btn btn-outline-warning">
+                <button type="button" class="btn btn-outline-warning" (click)="getCarUpdate(car)" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   Güncelle
                 </button>
               </td>
@@ -64,7 +64,7 @@
                 
                 <td>{{color.colorName}}</td>
                 <td>
-                  <button type="button"  class="btn btn-outline-warning">
+                  <button type="button" (click)="getColor(color)"   class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
                     Güncelle
                   </button>
                 </td>
@@ -97,7 +97,7 @@
                   
                   <td>{{brand.brandName}}</td>
                   <td>
-                    <button type="button" (click)="getBrand(brand.brandId)"  class="btn btn-outline-warning">
+                    <button type="button" (click)="getBrandforUpdate(brand)"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" >
                       Güncelle
                     </button>
                   </td>
@@ -114,3 +114,150 @@
       </div>
   </div>
 </div>
+
+
+
+<!-- Modal For Brand -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header"><h5 class="title">Marka Güncelle</h5></div>
+            <div class="card-body">
+              <form [formGroup]="brandUpdateForm" >
+                  <div class="form-group">
+                    <label for="brandName" class="col-sm-2 col-form-label col-form-label-sm">Marka Adı</label>
+                    <input type="hidden" formControlName="brandId"/>
+                   <input type="text"
+                    id="brandName" 
+                   formControlName="brandName"
+                   class="form-control"
+                   placeholder="{{brand?.brandName}}"/>
+                  </div>
+                  <br>
+                
+                  <button style="float:right" type="button" (click)="updateBrand()" class="btn btn-outline-info">Marka Güncelle </button>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal For Color -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header"><h5 class="title">Renk Güncelle</h5></div>
+            <div class="card-body">
+              <form  [formGroup]="colorUpdateForm">
+                  <div class="form-group">
+                    <label for="colorName" class="col-sm-2 col-form-label col-form-label-sm">Renk Adı</label>
+                  <input type="hidden" formControlName="colorId"/>
+                   <input type="text"
+                    id="colorName" 
+                   formControlName="colorName"
+                   class="form-control"
+                   placeholder={{color?.colorName}}/>  
+                  </div>
+                  <br>
+                  <button style="float:right" type="button" (click)="updateColor()"class="btn btn-outline-info">Güncelle </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal For Car -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header"><h5 class="title">Araba Güncelle</h5></div>
+            <div class="card-body">
+              <form [formGroup]="carUpdateForm" >
+                  <div class="form-group">
+                    <label for="carName" class="col-sm-2 col-form-label col-form-label-sm">Araba İsmi</label>
+                   <input type="text"
+                    id="carName" 
+                   formControlName="carName"
+                   class="form-control"
+                   placeholder="{{car?.carName}}"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="modelYear" class="col-sm-2 col-form-label col-form-label-sm">Model Yılı</label>
+                    <input type="text"
+                     id="modelYear" 
+                    formControlName="modelYear"
+                    class="form-control"
+                    placeholder="{{car?.modelYear}}"/>
+                   </div>
+                   <div class="form-group">
+                    <label for="dailyPrice" class="col-sm-2 col-form-label col-form-label-sm">Günlük Fiyat</label>
+                    <input type="number"
+                     id="dailyPrice" 
+                    formControlName="dailyPrice"
+                    class="form-control"
+                    placeholder="{{car?.dailyPrice}}"/>
+                   </div>
+                   <div class="form-group">
+                    <label for="description" class="col-sm-2 col-form-label col-form-label-sm">Açıklama</label>
+                    <input type="text"
+                     id="description" 
+                    formControlName="description"
+                    class="form-control"
+                    placeholder="{{car?.description}}"/>
+                   </div>
+                 
+                   <div class="form-group">
+                    <label for="findeks" class="col-sm-2 col-form-label col-form-label-sm">Findeks</label>
+                    <input type="number"
+                     id="findeks" 
+                    formControlName="findeks"
+                    class="form-control"
+                    placeholder="{{car?.findeks}}"/>
+                   </div>
+                   <div class="row">
+                    <div class="col-md-6">
+                      <label for="Renk" class="col-sm-2 col-form-label col-form-label-sm">Renk</label>
+                        <select formControlName="colorId"  class="form-select" aria-label="Renk Seçiniz"> 
+                          <option [ngValue]="color.colorId" *ngFor="let color of colors" >{{color.colorName}}</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-6">
+                        <label for="Marka" class="col-sm-3 col-form-label col-form-label-sm">Marka</label>
+                        <select formControlName="brandId" class="form-select" aria-placeholder="Marka Seçiniz">
+                            <option [ngValue]="brand.brandId" *ngFor="let brand of brands"  >{{brand.brandName}}</option>
+                          </select>
+                      </div>
+    
+                   </div>
+                  <br>
+                   <button style="float:right" type="button" (click)="updateCar()" class="btn btn-outline-info">Araba Güncelle </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    
+  
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators} from "@angular/forms"
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -14,7 +15,8 @@ export class BrandAddComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder, 
     private brandService:BrandService,
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService,
+    private router:Router) { }
 
   ngOnInit(): void {
    this.createBrandAddForm();
@@ -36,6 +38,10 @@ export class BrandAddComponent implements OnInit {
        this.brandService.add(brandModel).subscribe(response=>{
          console.log(response)
          this.toastrService.success(response.message,"Başarılı")
+         setTimeout(() => {
+          this.router.navigate(["/admin/cardetails"])
+         }, 1000);
+         
        },
        (responseError)=>{
         if (responseError.error.Errors.length > 0) {

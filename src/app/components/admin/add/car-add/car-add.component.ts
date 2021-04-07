@@ -5,6 +5,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Color } from 'src/app/models/color';
@@ -29,7 +30,9 @@ export class CarAddComponent implements OnInit {
     private brandService: BrandService,
     private colorService: ColorService,
     private cardetailService: CardetailService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router:Router
+    
   ) {}
 
   ngOnInit(): void {
@@ -82,6 +85,10 @@ export class CarAddComponent implements OnInit {
         (response) => {
           console.log(response);
           this.toastrService.success(response.message, 'başarılı');
+          setTimeout(() => {
+            this.router.navigate(["/admin/cardetails"])
+           }, 1000);
+           
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {

@@ -35,5 +35,10 @@ export class BrandService {
     return this.httpClient.post<ResponseModel>(newPath,brand)
   
   }
+
+  updateBrand(brand:Brand):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "brands/BrandUpdated"
+    return this.httpClient.post<ResponseModel>(newPath,brand);
+  }
 }
 
