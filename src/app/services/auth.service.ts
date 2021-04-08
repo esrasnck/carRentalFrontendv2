@@ -38,6 +38,18 @@ export class AuthService {
     return this.jwtHelper.decodeToken(token);
   }
 
+  
+ isAuthenticated(){
+  if (this.localStorageService.getToken()) {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+
+
   isAdmin(){
     let isAdmin=false;
     if(this.loggedIn()){

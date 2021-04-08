@@ -12,6 +12,7 @@ import { CustomerdetailComponent } from './components/customerdetail/customerdet
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path:"",component:CardetailComponent},
@@ -22,11 +23,11 @@ const routes: Routes = [
   {path:"cardetails/cardetailimage/:carId",component:CardetailimageComponent},
   {path:"cardetails/customers/:carId",component:CustomerdetailComponent},
   {path:"cardetails/rental/:carId",component:RentalComponent},
-  {path:"admin/brands/add",component:BrandAddComponent},
-  {path:"admin/colors/add",component:ColorAddComponent},
-  {path:"admin/cars/add",component:CarAddComponent},
-  {path:"admin/cardetails",component:CardetaillistComponent},
-  {path:"admin/user",component:UserComponent},
+  {path:"admin/brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
+  {path:"admin/colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
+  {path:"admin/cars/add",component:CarAddComponent,canActivate:[LoginGuard]},
+  {path:"admin/cardetails",component:CardetaillistComponent,canActivate:[LoginGuard]},
+  {path:"admin/user",component:UserComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent}
 

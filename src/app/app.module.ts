@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 import { CustomerdetailComponent } from './components/customerdetail/customerdetail.component';
@@ -26,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { UserComponent } from './components/admin/user/user.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
  
 export function tokenGetter() {
@@ -75,7 +76,9 @@ export function tokenGetter() {
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
