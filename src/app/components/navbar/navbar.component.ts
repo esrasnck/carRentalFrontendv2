@@ -29,12 +29,10 @@ export class NavbarComponent implements OnInit {
   }
 
   goToAdminEdit(){
-    // this.router.navigate(["adminEdit"]) // component oluştur. oraya git
-
-   console.log("oldu");
+     this.router.navigate(["admin/user"]) 
   }
 
-  ngDoCheck(){  //kübraya sor.
+  ngDoCheck(){  
     if(this.userInfo!==this.authService.user){
       this.userInfo = this.authService.user;
     }

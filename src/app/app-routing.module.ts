@@ -4,6 +4,7 @@ import { BrandAddComponent } from './components/admin/add/brand-add/brand-add.co
 import { CarAddComponent } from './components/admin/add/car-add/car-add.component';
 import { ColorAddComponent } from './components/admin/add/color-add/color-add.component';
 import { CardetaillistComponent } from './components/admin/cardetaillist/cardetaillist.component';
+import { UserComponent } from './components/admin/user/user.component';
 
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:"admin/colors/add",component:ColorAddComponent},
   {path:"admin/cars/add",component:CarAddComponent},
   {path:"admin/cardetails",component:CardetaillistComponent},
+  {path:"admin/user",component:UserComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent}
 

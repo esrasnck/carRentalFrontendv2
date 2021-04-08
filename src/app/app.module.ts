@@ -25,6 +25,7 @@ import { CardetaillistComponent } from './components/admin/cardetaillist/cardeta
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from "@auth0/angular-jwt";
+import { UserComponent } from './components/admin/user/user.component';
 
  
 export function tokenGetter() {
@@ -54,6 +55,7 @@ export function tokenGetter() {
     CardetaillistComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
 
   ],
   imports: [

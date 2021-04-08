@@ -46,6 +46,7 @@ export class AuthService {
            isAdmin=true;
           
         }
+        // is user ya da is moderatör mantığı olabilir. bakacaz.
 
       })
     }
@@ -60,7 +61,7 @@ export class AuthService {
       return false;
     }
   }
-
+  
   getUser(){
     let decodedToken = this.decodedToken(this.localStorageService.getToken())
     if (decodedToken) {
