@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CustomerDetail } from '../models/customerdetail';
 import { LoginModel } from '../models/login';
 import { RegisterModel } from '../models/registerModel';
 
@@ -88,18 +89,30 @@ export class AuthService {
         let roles= decodedToken[claimInfo];
 
         let emailInfo= decodedToken.email; 
-
         this.user={
           userId:userId,
           userName : userName,
           email:emailInfo,
-          roles:roles
+          roles:roles,
+          companyName:"",
+          customerId:0
         }
+
+        this.getCustomerByUser(this.user.userId)
 
       }
     }
     return this.user;
 
+  }
+
+  getCustomerByUser(userId: number) {
+    let url = environment.apiUrl + 'customers/GetByUserId?userId=' + userId;
+
+    this.httpClient.get<SingleResponseModel<CustomerDetail>>(url).subscribe((res) => {
+      this.user.customerId = res.data.customerId;
+      this.user.companyName = res.data.companyName;
+    });
   }
 
 }

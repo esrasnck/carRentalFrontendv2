@@ -20,7 +20,8 @@ export class UserComponent implements OnInit {
 
   userId:number;
   user:UserUpdateModel;
-  updateUserForm:FormGroup
+  updateUserForm:FormGroup;
+  updatePasswordForm:FormGroup;
 
   constructor(private formBuilder:FormBuilder, private userService:UserService,
     private toastrService:ToastrService, private router:Router,
@@ -31,6 +32,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.updateForm();
     this.getUserById();
+    this.createupdatePasswordForm();
   }
  
   getUserById(){
@@ -40,8 +42,10 @@ export class UserComponent implements OnInit {
     this.userService.getByUserId(id).subscribe(response=>{
       this.user = response.data;
       console.log(this.user)
-
-
+      this.updateUserForm.patchValue(response.data)
+      this.updatePasswordForm.patchValue({
+        email:response.data.email
+      })
     })
 
   }
@@ -76,4 +80,32 @@ export class UserComponent implements OnInit {
       this.toastrService.warning("Form eksik","dikkat!")
     }
   }
+  
+  createupdatePasswordForm(){
+    this.updatePasswordForm =this.formBuilder.group({
+      email:['',Validators.required],
+      oldPassword:['',Validators.required],
+      newPassword:['',Validators.required]
+    })
+
+  }
+
+  updatePassword(){
+    console.log(this.updatePasswordForm.value)
+  if (this.updatePasswordForm.valid) {
+    let updatePassword = Object.assign({},this.updatePasswordForm.value)
+    this.userService.changePassword(updatePassword).subscribe(response=>{
+      this.toastrService.success(response.message,"başarılı")
+      this.localStorage.removeToken();
+      window.location.reload()
+    },responseError=>{
+      this.toastrService.error("güncellenmedi")
+    })
+    
+  }
+  else{
+    this.toastrService.warning("Form eksik","Dikkat !")
+  }
+  }
+  
 }

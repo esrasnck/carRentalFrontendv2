@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CarDetail } from 'src/app/models/cardetail';
 import { CustomerDetail } from 'src/app/models/customerdetail';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { CustomerdetailService } from '../../services/customerdetail.service';
 
@@ -17,36 +18,37 @@ export class RentalComponent implements OnInit {
   returnDate:Date;
   state:number=1;
   rentals:Rental;
+  message:string
 
   @Input() carforRent:CarDetail  // I Love U Ceren Bıdık <3 :)
 
 
-  constructor(private customerDetailService:CustomerdetailService) { }
+  constructor(private customerDetailService:CustomerdetailService, private authService: AuthService) { }
 
-  ngOnInit(): void {
-    this.getCustomers();
-  }
+  ngOnInit(): void {}
 
-   getCustomers(){
-    this.customerDetailService.getCustomerAll().subscribe(reponse=>{
-      this.custormerDetails =reponse.data;
-      console.log(this.custormerDetails)
-    })
-   }
 
    createNewRental(){
     let rental:Rental={
       carId:this.carforRent.carId,
-      customerId:Number(this.customerId),
+      customerId:this.authService.user.customerId,
       rentDate:this.rentDate,
       returnDate:this.returnDate
     }
     this.rentals = rental;
-    console.log(this.rentals);
    }
 
    changeState(e:any){
+     console.log(e)
      this.state = e
    }
+
+   errorMessage(e:any){
+    this.message = e
+   }
   
+
+   isAuthenticated(){
+    return this.authService.isAuthenticated()
+  }
 }

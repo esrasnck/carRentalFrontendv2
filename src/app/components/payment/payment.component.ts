@@ -20,6 +20,7 @@ export class PaymentComponent implements OnInit {
  @Input() rents:Rental
  @Input() state:number
  @Output() changeState = new EventEmitter()
+ @Output() errorMessage = new EventEmitter()
 
   constructor(private paymentService:PaymentService, private rentalService:RentalService,private toasterService:ToastrService) { }
 
@@ -49,8 +50,15 @@ export class PaymentComponent implements OnInit {
   }
 
   goToPayment(){
-    this.state = 2
-    this.changeState.emit(this.state)
+    console.log(this.state)
+    if(this.rents?.rentDate !== undefined){
+
+      this.state = 2
+      this.changeState.emit(this.state)
+    }else{
+      this.errorMessage.emit("Rent date zorunlu alan!")
+    }
+
   }
 
 }

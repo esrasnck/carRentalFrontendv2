@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { CarDetail } from 'src/app/models/cardetail';
 import { Color } from 'src/app/models/color';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { BrandService } from '../../services/brand.service';
 import { CardetailService } from '../../services/cardetail.service';
@@ -29,7 +30,8 @@ export class CardetailComponent implements OnInit {
     private carDetailService: CardetailService,
     private activedRoute: ActivatedRoute,
     private colorService: ColorService,
-    private brandService: BrandService
+    private brandService: BrandService,
+   
   ) {}
 
   ngOnInit(): void {
@@ -106,6 +108,8 @@ export class CardetailComponent implements OnInit {
         this.cardetails = response.data;
       });
   }
+
+
 
 
   /* kullanmazsan sil. simdilik kullanmıyorsun

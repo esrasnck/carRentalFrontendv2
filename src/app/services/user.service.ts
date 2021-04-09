@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { User } from '../models/user';
+import { UserPasswordUpdate } from '../models/userPassworUpdate';
 import { UserUpdateModel } from '../models/userUpdateModel';
 
 @Injectable({
@@ -25,5 +26,10 @@ export class UserService {
     let newPath = this.apiUrl + "Users/GetByUserId?id="+userId;
     return this.httpClient.get<SingleResponseModel<UserUpdateModel>>(newPath)
 
+  }
+
+  changePassword(userPasswordUpdate:UserPasswordUpdate):Observable<ResponseModel>{
+    let newPath = this.apiUrl +"Users/ChangeUserPassword"
+    return this.httpClient.post<ResponseModel>(newPath,userPasswordUpdate);
   }
 }
