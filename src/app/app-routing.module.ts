@@ -10,6 +10,7 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
 import { CustomerdetailComponent } from './components/customerdetail/customerdetail.component';
 import { LoginComponent } from './components/login/login.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"cardetails/cardetailimage/:carId",component:CardetailimageComponent},
   {path:"cardetails/customers/:carId",component:CustomerdetailComponent},
   {path:"cardetails/rental/:carId",component:RentalComponent},
+  {path:"cardetails/payment",component:PaymentComponent},
   {path:"admin/brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
   {path:"admin/colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
   {path:"admin/cars/add",component:CarAddComponent,canActivate:[LoginGuard]},

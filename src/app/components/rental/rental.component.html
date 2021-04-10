@@ -19,7 +19,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <button [routerLink]="['/login']" data-bs-dismiss="modal" >Go to login</button>
+          <button [routerLink]="['/login']" data-bs-dismiss="modal" class="btn btn-outline-info">Go to login</button>
         </div>
       </div>
 
@@ -41,14 +41,17 @@
             </div>
             <div class="form-group" style="margin-bottom: 15px;">
               <label for="returnDate">Geri Dönüş Tarihi</label>
-              <input [(ngModel)]="returnDate" type="datetime-local" class="form-control" id="returnDate" name="returnDate">
+              <input [(ngModel)]="returnDate" type="datetime-local" class="form-control" id="returnDate" name="returnDate"  (input)='totalAmount()'>
             </div>
            </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <a (click)="createNewRental()"><app-payment (errorMessage)='errorMessage($event)' (changeState)='changeState($event)' [state]='state' [rents]="rentals" ></app-payment> </a> 
+        
+      <button type="button" class="btn btn-outline-success" (click)="payment()" style="float:right">
+        Ödeme Yap
+          </button>
         </div>
       </div>
     </div>

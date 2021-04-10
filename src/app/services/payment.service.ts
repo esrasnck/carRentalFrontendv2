@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Payment } from '../models/payment';
+import { Rental } from '../models/rental';
 import { ResponseModel } from '../models/responseModel';
 
 
@@ -13,14 +14,15 @@ import { ResponseModel } from '../models/responseModel';
 export class PaymentService {
 
   apiUrl=environment.apiUrl
+  totalPrice:number;
+  rentals:Rental;
 
   constructor(private httpClient:HttpClient) { }
 
   addPayment(payment:Payment):Observable<ResponseModel>{
-    let newPath = this.apiUrl + "Cards/Add";
+    let newPath = this.apiUrl + "Payments/Add";
     return this.httpClient.post<ResponseModel>(newPath,payment);
 
-    //Response dönmesi gerekiyor. sıkıntı o.
   }
 
 }

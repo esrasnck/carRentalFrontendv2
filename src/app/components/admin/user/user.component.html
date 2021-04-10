@@ -2,18 +2,22 @@
   <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
     <label for="firstName" class="form-label">İsmi</label>
    <p></p>
-    <input type="text" class="form-control" id="firstName" placeholder="firstName" formControlName="firstName">
+    <input type="text" class="form-control" id="firstName" placeholder="İsim girin" formControlName="firstName">
   
   <div class="mb-3">
     <label for="lastName" class="form-label">Soyİsmi</label>
-    <input type="text" class="form-control" id="lastName" placeholder="lastName" formControlName="lastName">
+    <input type="text" class="form-control" id="lastName" placeholder="Soy isim girin" formControlName="lastName">
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email Adresi</label>
     <input type="text" class="form-control" id="email" placeholder="example@example.com" formControlName="email">
   </div>
+  <div class="mb-12">
+  <div class="col-md-12 offset-md-10">
   <button type="submit" class="btn btn-outline-success" >Kullanıcı Güncelle
   </button>
+</div>
+</div>
   </form>
   <form [formGroup]="updatePasswordForm" (ngSubmit)='updatePassword()'>
 
@@ -26,7 +30,7 @@
     <input type="password" class="form-control" id="newPassword" placeholder="***" formControlName="newPassword">
   </div>
   <div class="mb-12">
-  <div class="col-md-12 offset-md-9">
+  <div class="col-md-12 offset-md-10">
     <button type="submit" class="btn btn-outline-success" >Şifre Güncelle
     </button>
   </div>

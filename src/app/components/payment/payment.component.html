@@ -1,40 +1,37 @@
+<div class="content">
+<form [formGroup]="paymentForm"class="row g-3">
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Kartın Üstündeki İsim</label>
+    <input type="text" class="form-control" id="customerName" placeholder="İsim Girin">
+  </div>
+  
+  <div class="col-md-4">
+    <label for="creditCardNumber" class="form-label">Kart Numarası</label>
+    <input type="text" formControlName="creditCardNumber" class="form-control" id="creditCardNumber" placeholder="____-____-____-____">
+  </div>
+  <div class="col-md-4">
+    <label for="expirationDate" class="form-label">Son Kullanma Tarihi</label>
+    <input type="text" formControlName="expirationDate" class="form-control" id="expirationDate" placeholder="__/__">
+  </div>
+  <div class="col-md-4">
+    <label for="securityCode" class="form-label">Güvenlik Kodu</label>
+    <input type="text" class="form-control" formControlName="securityCode" id="securityCode"placeholder="___">
+  </div>
+  <div class="col-12">
 
-<button type="button" class="btn btn-outline-success" (click)='goToPayment()' data-bs-toggle="modal"  data-bs-target="#paymentModal" style="float:right">
-  Ödeme Yap
-    </button>
-   
-    <!-- Modal -->
-    <div class="modal fade w-100" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true" *ngIf="state !== 1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="rentalModalLabel">Araç Kiralama</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group" style="margin-bottom: 15px;">
-                <label for="creditCardNumber">Kredi Kartı Numarası</label>
-                <input [(ngModel)]="creditCardNumber" type="text" class="form-control" id="creditCardNumber" name="creditCardNumber">
-              </div>
-              <div class="form-group" style="margin-bottom: 15px;">
-                <label for="expirationDate">Bitiş Süresi</label>
-                <input [(ngModel)]="expirationDate" type="text" class="form-control" id="expirationDate" name="expirationDate">
-              </div>
-              <div class="form-group" style="margin-bottom: 15px;">
-                <label for="securityCode">Güvenlik Kodu</label>
-                <input [(ngModel)]="securityCode" type="text" class="form-control" id="securityCode" name="securityCode">
-              </div>
-              <div class="form-group" style="margin-bottom: 15px;">
-                <label for="price">Ücret</label>
-                <input [(ngModel)]="price" type="number" class="form-control" id="price" name="price">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button (click)="addPayment()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Onayla </button>
-          </div>
-        </div>
-      </div>
+    <div class="alert alert-info" role="alert" *ngIf="totalPrice">
+      Total Price : {{totalPrice}}
     </div>
+
+    <div class="form-check">
+      <label class="form-check-label" for="gridCheck">
+        Kartı Kaydetmek İster misiniz?
+       </label>
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+    </div>
+  </div>
+  <div class="col-12 offset-10">
+    <button type="submit" class="btn btn-primary" (click)="addPayment()">Ödeme Yap</button>
+  </div>
+</form>
+</div>

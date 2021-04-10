@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Payment } from 'src/app/models/payment';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { PaymentService } from '../../services/payment.service';
 import { RentalService } from '../../services/rental.service';
@@ -12,37 +14,57 @@ import { RentalService } from '../../services/rental.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  creditCardNumber:string;
-  expirationDate:string;
-  securityCode:string;
-  price:number;
+  paymentForm:FormGroup;
+  paymentModel:Payment;
+  isPayed:boolean =false;
+  totalPrice = this.paymentService.totalPrice;
 
  @Input() rents:Rental
  @Input() state:number
  @Output() changeState = new EventEmitter()
  @Output() errorMessage = new EventEmitter()
 
-  constructor(private paymentService:PaymentService, private rentalService:RentalService,private toasterService:ToastrService) { }
+  constructor(private paymentService:PaymentService, 
+    private rentalService:RentalService,
+    private toasterService:ToastrService,
+    private formBuilder:FormBuilder,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
+    this.createPaymentForm();
+  }
+
+  createPaymentForm(){
+    this.paymentForm = this.formBuilder.group({
+      
+      creditCardNumber:['',Validators.required],
+      price:this.paymentService.totalPrice,
+      expirationDate:['',Validators.required],
+      securityCode:['',Validators.required]
+    })
   }
  
+ 
   addPayment(){
-  let payment:Payment={
-    customerId:this.rents.customerId,
-    creditCardNumber:this.creditCardNumber,
-    expirationDate:this.expirationDate,
-    securityCode:this.securityCode,
-    money:this.price
-  };
-  this.paymentService.addPayment(payment).subscribe(response=>{
-   
-      this.rentalService.addRental(this.rents).subscribe(response=>{
+    if(this.paymentForm.valid){
+      this.paymentModel= this.paymentForm.value;
+      this.paymentModel.customerId = this.authService.user.customerId;
+      console.log(this.paymentModel)
+    }
+  ;
+  this.paymentService.addPayment(this.paymentModel).subscribe(response=>{
+    this.toasterService.success("ödeme alındı");
+    this.isPayed=true;
+    if(this.isPayed){
+      console.log(this.isPayed)
+      
+      this.rentalService.addRental(this.paymentService.rentals).subscribe(response=>{
         this.toasterService.success("araba kiralandı")
       
       },responseError=>{
          this.toasterService.error(responseError.errors,"araba kiralanamadı")
       })
+    }
 
   })
 
@@ -55,8 +77,9 @@ export class PaymentComponent implements OnInit {
 
       this.state = 2
       this.changeState.emit(this.state)
-    }else{
-      this.errorMessage.emit("Rent date zorunlu alan!")
+    }
+    else{
+      this.errorMessage.emit("Kiralama tarihi zorunlu alan!")
     }
 
   }

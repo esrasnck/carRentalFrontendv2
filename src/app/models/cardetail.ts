@@ -6,8 +6,9 @@ export interface CarDetail{
     carName:string;
     brandName:string;
     colorName:string;
-    dailyPrice:string;
+    dailyPrice:number;
     description:string;
     isRentable:boolean;
     imagePath:string[];
+    findeks:number;
 }
