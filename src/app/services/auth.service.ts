@@ -54,12 +54,11 @@ export class AuthService {
   isAdmin(){
     let isAdmin=false;
     if(this.loggedIn()){
-      this.user.roles?.map(role=> {
+      this.user.roles?.toString().split(",").map(role=> {
         if(role.toLocaleLowerCase().indexOf("admin")!== -1){
            isAdmin=true;
           
         }
-        // is user ya da is moderatör mantığı olabilir. bakacaz.
 
       })
     }

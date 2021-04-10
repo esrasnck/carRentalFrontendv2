@@ -74,7 +74,7 @@ export class RentalComponent implements OnInit {
       window.scrollTo(0,0)
     }
     else{
-      console.log("Rent date lazım bacım")
+      console.log("Rent date lazım")
     }
   }
 
