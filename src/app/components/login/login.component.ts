@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   addLoginForm(){
     this.loginForm = this.formBuilder.group({
-      email:['',Validators.required],  // dilaraya sor
+      email:['',Validators.required],  
       password:['',Validators.required]
     })
   }
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({},this.loginForm.value)
       this.authService.login(loginModel).subscribe(response=> {
       this.localstorage.saveToken(response.data.token);
-      this.authService.decodedTokenKey=this.authService.decodedToken(response.data.token);  //?
+      this.authService.decodedTokenKey=this.authService.decodedToken(response.data.token); 
       this.authService.getUser();
       this.router.navigate(["/"]);
       this.toastrService.success("Logged In")

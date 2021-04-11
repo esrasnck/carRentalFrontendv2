@@ -112,11 +112,5 @@ export class CardetailComponent implements OnInit {
 
 
 
-  /* kullanmazsan sil. simdilik kullanmıyorsun
-  getCarDetailByCarId(carId:number){
-    this.carDetailService.getCarDetailsByCarId(carId).subscribe(response=>{
-      this.cardetails =response.data;
-      console.log(this.cardetails);
-    })
-  }*/
+
 }

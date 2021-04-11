@@ -8,5 +8,5 @@ export class OperationClaimService {
   constructor() { }
 
 
-  // claim servisleri gelecek buraya
+  
 }

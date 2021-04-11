@@ -19,10 +19,7 @@ export class RentalService {
     return this.httpClient.post<ResponseModel>(newPath,rental);
   }
   
-  // checkFindeks(carId:number, customerId:number):Observable<ResponseModel>{
-  //   let newPath = this.apiUrl +"rentals/Checkfindeks?carId=" + carId +"&customerId" +customerId;
-  //   return 
-  // }
+
 
 }
 
