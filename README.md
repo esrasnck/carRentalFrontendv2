@@ -1,4 +1,4 @@
-# Car Rental Company - Rent  A Car
+# Recap Car Rental Company - Rent  A Car
 
 This project is an online car rental project for  [kodlama.io](https://www.kodlama.io/) online course program of Engin Demirog and his team.
 
