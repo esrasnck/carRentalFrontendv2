@@ -1,27 +1,44 @@
-# CarRentalFrontendv2
+# Car Rental Company - Rent  A Car
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+This project is an online car rental project for  [kodlama.io](https://www.kodlama.io/) online course program of Engin Demirog and his team.
 
-## Development server
+### Tecnologies
+- Angular 11
+- TypeScript
+- Bootstrap 5
+- Jquery
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### FrontendTechniques
+- Pipe
+- JWT
+- Service
 
-## Code scaffolding
+### Login And Register Page About User
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/register.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Log-Out.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/GoToLogin.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Update-user.png"/>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Main Page
 
-## Build
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/CarDetails.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Main2.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/MainPage.png"/>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### About Renting
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/DisableButton.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Exceptions.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Findeks.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/NotAddingCards.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Payment.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/PaymentException.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/RedBackGroundIsUnableToRent.png"/>
 
-## Running unit tests
+### Admin Panel
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/AdminPanel-CarAdd.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/AdminPanel-CarUpdate.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/AdminPanel-ColorAdd.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/AdminPanel.png"/>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### About Findeks
+<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Findeks.png"/>
