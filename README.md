@@ -8,10 +8,14 @@ This project is an online car rental project for  [kodlama.io](https://www.kodla
 - Bootstrap 5
 - Jquery
 
+
 ### FrontendTechniques
 - Pipe
 - JWT
 - Service
+- Toastr Service
+- Font Awesome
+- Google Fonts
 
 ### Login And Register Page About User
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/register.png"/>
