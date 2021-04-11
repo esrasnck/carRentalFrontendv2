@@ -22,6 +22,7 @@ This project is an online car rental project for  [kodlama.io](https://www.kodla
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Log-Out.png"/>
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/GoToLogin.png"/>
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Update-user.png"/>
+<img src="https://github.com/esrasnck/carRentalFrontendv2/raw/main/Proje%20Resimleri/Exceptions.png"/>
 
 
 
@@ -36,7 +37,6 @@ This project is an online car rental project for  [kodlama.io](https://www.kodla
 
 ### About Renting
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/DisableButton.png"/>
-<img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Exceptions.png"/>
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Findeks.png"/>
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/NotAddingCards.png"/>
 <img src="https://github.com/esrasnck/carRentalFrontendv2/blob/main/Proje%20Resimleri/Payment.png"/>
