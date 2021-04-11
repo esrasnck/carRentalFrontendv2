@@ -1,7 +1,7 @@
 <div class="content">
   <div class="col-md-12">
     <div class="card">
-      <div class="card-header"><button type="button" routerLink="/admin/cars/add"  style="float:right" class="btn btn-outline-success">Araba ekle</button></div>
+      <div class="card-header"><button type="button" routerLink="/admin/cars/add"  style="float:right;color:#77d0d9" class="btn btn-dark">Araba ekle</button></div>
       <div class="card-body">
         <table class="table table-hover">
           <thead>
@@ -23,16 +23,16 @@
               <td>{{car.carName}}</td>
               <td>{{car.colorId}}</td>
               <td>{{car.brandId }}</td>
-              <td>{{car.dailyPrice }}</td>
+              <td>{{car.dailyPrice  | currency: "USD":true:"1.2-2" }}</td>
               <td>{{car.description}}</td>
-              <td>Findeks Skoru</td>
+              <td>{{car.findeks}}</td>
               <td>
-                <button type="button" class="btn btn-outline-warning" (click)="getCarUpdate(car)" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <button type="button"  class="btn btn-outline-dark" (click)="getCarUpdate(car)" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   Güncelle
                 </button>
               </td>
               <td>
-                <button type="button" (click)="removeCar(car)" class="btn btn-outline-danger">
+                <button type="button"   class="btn btn-secondary" (click)="removeCar(car)" >
                   Sil
                 </button>
               </td>
@@ -48,7 +48,7 @@
     <div class="row">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header"><button type="button" routerLink="/admin/colors/add"  style="float:right" class="btn btn-outline-success">Renk ekle</button></div>
+        <div class="card-header"><button type="button" routerLink="/admin/colors/add"  style="float:right;color:#77d0d9" class="btn btn-dark">Renk ekle</button></div>
         <div class="card-body">
           <table class="table table-hover">
             <thead>
@@ -64,12 +64,12 @@
                 
                 <td>{{color.colorName}}</td>
                 <td>
-                  <button type="button" (click)="getColor(color)"   class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+                  <button type="button" (click)="getColor(color)"    class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
                     Güncelle
                   </button>
                 </td>
                 <td>
-                  <button type="button" (click)="removeColor(color)" class="btn btn-outline-danger">
+                  <button type="button" (click)="removeColor(color)"   class="btn btn-secondary">
                     Sil
                   </button>
                 </td>
@@ -81,7 +81,7 @@
     </div>
     <div class="col-md-6">
         <div class="card">
-          <div class="card-header"><button type="button" routerLink="/admin/brands/add"  style="float:right" class="btn btn-outline-success">Marka ekle</button></div>
+          <div class="card-header"><button type="button"  routerLink="/admin/brands/add"  style="float:right;color: #77d0d9" class="btn btn-dark">Marka ekle</button></div>
           <div class="card-body">
             <table class="table table-hover">
               <thead>
@@ -97,12 +97,12 @@
                   
                   <td>{{brand.brandName}}</td>
                   <td>
-                    <button type="button" (click)="getBrandforUpdate(brand)"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                    <button type="button"  (click)="getBrandforUpdate(brand)"  class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >
                       Güncelle
                     </button>
                   </td>
                   <td>
-                    <button type="button"  (click)="removeBrand(brand)" class="btn btn-outline-danger">
+                    <button type="button" (click)="removeBrand(brand)"  class="btn btn-secondary">
                       Sil
                     </button>
                   </td>
@@ -124,8 +124,7 @@
       <div class="modal-body">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header"><h5 class="title">Marka Güncelle</h5></div>
-            <div class="card-body">
+            <div class="card-header"><h5 class="title" >Marka Güncelle</h5></div>
               <form [formGroup]="brandUpdateForm" >
                   <div class="form-group">
                     <label for="brandName" class="col-sm-2 col-form-label col-form-label-sm">Marka Adı</label>
@@ -134,11 +133,11 @@
                     id="brandName" 
                    formControlName="brandName"
                    class="form-control"
-                   placeholder="{{brand?.brandName}}"/>
+                   placeholder="Marka Adı"/>
                   </div>
                   <br>
                 
-                  <button style="float:right" type="button" (click)="updateBrand()" class="btn btn-outline-info">Marka Güncelle </button>
+                  <button style="float:right" type="button" (click)="updateBrand()" class="btn btn-outline-dark">Marka Güncelle </button>
                 
               </form>
             </div>
@@ -148,7 +147,8 @@
  
     </div>
   </div>
-</div>
+
+
 
 
 <!-- Modal For Color -->
@@ -168,10 +168,10 @@
                     id="colorName" 
                    formControlName="colorName"
                    class="form-control"
-                   placeholder={{color?.colorName}}/>  
+                   placeholder="Renk Adı"/>  
                   </div>
                   <br>
-                  <button style="float:right" type="button" (click)="updateColor()"class="btn btn-outline-info">Güncelle </button>
+                  <button style="float:right;" type="button" (click)="updateColor()"class="btn btn-outline-dark">Güncelle </button>
               </form>
             </div>
           </div>
@@ -198,7 +198,7 @@
                     id="carName" 
                    formControlName="carName"
                    class="form-control"
-                   placeholder="{{car?.carName}}"/>
+                   placeholder="Araba Adı"/>
                   </div>
                   <div class="form-group">
                     <label for="modelYear" class="col-sm-2 col-form-label col-form-label-sm">Model Yılı</label>
@@ -206,7 +206,7 @@
                      id="modelYear" 
                     formControlName="modelYear"
                     class="form-control"
-                    placeholder="{{car?.modelYear}}"/>
+                    placeholder="Araba Yılı"/>
                    </div>
                    <div class="form-group">
                     <label for="dailyPrice" class="col-sm-2 col-form-label col-form-label-sm">Günlük Fiyat</label>
@@ -214,7 +214,7 @@
                      id="dailyPrice" 
                     formControlName="dailyPrice"
                     class="form-control"
-                    placeholder="{{car?.dailyPrice}}"/>
+                    placeholder="Günlük Fiyatı"/>
                    </div>
                    <div class="form-group">
                     <label for="description" class="col-sm-2 col-form-label col-form-label-sm">Açıklama</label>
@@ -222,7 +222,7 @@
                      id="description" 
                     formControlName="description"
                     class="form-control"
-                    placeholder="{{car?.description}}"/>
+                    placeholder="Açıklaması"/>
                    </div>
                  
                    <div class="form-group">
@@ -231,7 +231,7 @@
                      id="findeks" 
                     formControlName="findeks"
                     class="form-control"
-                    placeholder="{{car?.findeks}}"/>
+                    placeholder="Findeks Numarası"/>
                    </div>
                    <div class="row">
                     <div class="col-md-6">
@@ -250,7 +250,7 @@
     
                    </div>
                   <br>
-                   <button style="float:right" type="button" (click)="updateCar()" class="btn btn-outline-info">Araba Güncelle </button>
+                   <button style="float:right;" type="button" (click)="updateCar()" class="btn btn-outline-dark">Araba Güncelle </button>
               </form>
             </div>
           </div>

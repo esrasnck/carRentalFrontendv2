@@ -17,13 +17,13 @@
 </div>
 <div>
   <ul *ngIf="cardetails" class="list-group list-group-flush">
-    <li class="list-group-item">Brand Name: {{ cardetails.brandName }}</li>
-    <li class="list-group-item">Color Name: {{ cardetails.colorName }}</li>
-    <li class="list-group-item">Model Year: {{ cardetails.modelYear }}</li>
-    <li class="list-group-item">Car Name: {{ cardetails.carName }}</li>
-    <li class="list-group-item">Daily Price: {{ cardetails.dailyPrice }}</li>
-    <li class="list-group-item">Description : {{ cardetails.description }}</li>
-    <li class="list-group-item">Findeks: {{ cardetails.findeks }}</li>
+    <li class="list-group-item">Marka Adı: {{ cardetails.brandName }}</li>
+    <li class="list-group-item">Renk Adı: {{ cardetails.colorName }}</li>
+    <li class="list-group-item">Model Yılı: {{ cardetails.modelYear }}</li>
+    <li class="list-group-item">Araba Adı: {{ cardetails.carName }}</li>
+    <li class="list-group-item">Günlük Fiyatı: {{ cardetails.dailyPrice  | currency: "USD":true:"1.2-2" }}</li>
+    <li class="list-group-item">Açıklaması : {{ cardetails.description }}</li>
+    <li class="list-group-item">Findeks : {{ cardetails.findeks }}</li>
     <br />
   </ul>
 </div>

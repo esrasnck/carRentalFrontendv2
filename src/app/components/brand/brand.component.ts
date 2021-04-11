@@ -26,9 +26,5 @@ export class BrandComponent implements OnInit {
   } 
 
  
-  /*
-  getBrands(){
-    this.brands= this.brandService.brand;
-  }
-*/
+
 }

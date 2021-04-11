@@ -11,6 +11,7 @@ import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { User } from '../models/user';
+import { CustomerdetailService } from './customerdetail.service';
 import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
@@ -23,7 +24,8 @@ export class AuthService {
 
   apiUrl= environment.apiUrl +"Auth/"
 
-  constructor(private httpClient:HttpClient, private localStorageService:LocalstorageService, private jwtHelper:JwtHelperService) { }
+  constructor(private httpClient:HttpClient, 
+    private customerService : CustomerdetailService, private localStorageService:LocalstorageService, private jwtHelper:JwtHelperService) { }
 
   login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
     let newPath= this.apiUrl+ "Login";
@@ -95,9 +97,9 @@ export class AuthService {
           roles:roles,
           companyName:"",
           customerId:0
-        }
+        }        
 
-        this.getCustomerByUser(this.user.userId)
+        this.getCustomerByUser(userId)
 
       }
     }
@@ -106,9 +108,7 @@ export class AuthService {
   }
 
   getCustomerByUser(userId: number) {
-    let url = environment.apiUrl + 'customers/GetByUserId?userId=' + userId;
-
-    this.httpClient.get<SingleResponseModel<CustomerDetail>>(url).subscribe((res) => {
+    this.customerService.getCustomerIdByUserId(userId).subscribe(res =>{
       this.user.customerId = res.data.customerId;
       this.user.companyName = res.data.companyName;
     });

@@ -1,39 +1,45 @@
-<div class="mb-3">
-  <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
-    <label for="firstName" class="form-label">İsmi</label>
-   <p></p>
-    <input type="text" class="form-control" id="firstName" placeholder="İsim girin" formControlName="firstName">
-  
-  <div class="mb-3">
-    <label for="lastName" class="form-label">Soyİsmi</label>
-    <input type="text" class="form-control" id="lastName" placeholder="Soy isim girin" formControlName="lastName">
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Email Adresi</label>
-    <input type="text" class="form-control" id="email" placeholder="example@example.com" formControlName="email">
-  </div>
-  <div class="mb-12">
-  <div class="col-md-12 offset-md-10">
-  <button type="submit" class="btn btn-outline-success" >Kullanıcı Güncelle
-  </button>
-</div>
-</div>
-  </form>
-  <form [formGroup]="updatePasswordForm" (ngSubmit)='updatePassword()'>
-
-    <div class="mb-3">
-      <label for="password" class="form-label"> Eksi Şifre</label>
-      <input type="password" class="form-control" id="oldPassword" placeholder="***" formControlName="oldPassword">
+<div class="row mt-3">
+  <div class="col-md-6">
+    <form [formGroup]="updateUserForm">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">İsmi</label>
+        <input type="text" class="form-control" id="firstName" placeholder="İsim girin" formControlName="firstName" />
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Soyİsmi</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Soy isim girin" formControlName="lastName" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Adresi</label>
+        <input type="text" class="form-control" id="email" placeholder="example@example.com" formControlName="email" />
+      </div>    
+    </form>
+    <div class="col-md-6">
+      <button type="button" (click)="updateUser()" class="btn btn-outline-info">
+        Kullanıcı Güncelle
+      </button>
     </div>
-  <div class="mb-3">
-    <label for="password" class="form-label"> Şifre</label>
-    <input type="password" class="form-control" id="newPassword" placeholder="***" formControlName="newPassword">
   </div>
-  <div class="mb-12">
-  <div class="col-md-12 offset-md-10">
-    <button type="submit" class="btn btn-outline-success" >Şifre Güncelle
-    </button>
+  <div class="col-md-6">
+    <form [formGroup]="updatePasswordForm">
+      <div class="mb-3">
+        <label for="eMail" class="form-label">Email Adresi</label>
+        <input type="eMail" class="form-control" id="eMail" placeholder="example@example.com" formControlName="email" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label"> Eksi Şifre</label>
+        <input type="password" class="form-control" id="oldPassword" placeholder="***" formControlName="oldPassword" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label"> Şifre</label>
+        <input type="password" class="form-control" id="newPassword" placeholder="***" formControlName="newPassword" />
+      </div>   
+    </form>
+    <div class="col-md-6">
+      <button type="button" (click)="updatePassword()" class="btn btn-outline-info">
+        Şifre Güncelle
+      </button>
+    </div>
+
   </div>
-  </div>
-</form>
 </div>

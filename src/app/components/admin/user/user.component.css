@@ -1,0 +1,10 @@
+.btn-outline-info{
+    color: black;
+    border-color: #72c4d559;
+    background-color: #0dcaf040;
+}
+.btn-outline-info:hover{
+    color: black;
+    border-color: #72c4d559;
+    background-color: #0dcaf0;;
+}

@@ -10,10 +10,6 @@
       </button>
   </div>      
 
-
-
-
- 
   <!-- Modal -->
   <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true"  >
     <div class="modal-dialog">
@@ -26,7 +22,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <button [routerLink]="['/login']" data-bs-dismiss="modal" class="btn btn-outline-info">Go to login</button>
+          <button [routerLink]="['/login']" data-bs-dismiss="modal" class="btn btn-outline-dark">Go to login</button>
         </div>
       </div>
 
@@ -43,20 +39,20 @@
             <div class="row">
             <div class="form-group" style="margin-bottom: 15px;">
               <label for="rentDate">Kiralama Tarihi</label>
-              <input [(ngModel)]="rentDate"  type="datetime-local" class="form-control" id="rentDate" name="rentDate">
+              <input [(ngModel)]="rentDate"  type="date" class="form-control" id="rentDate"  min="{{minDate}}" max='{{maxDate}}' name="rentDate" (input)='minDateChange($event)' >
               <p *ngIf="message" class="text-danger"> {{message}} </p>
             </div>
             <div class="form-group" style="margin-bottom: 15px;">
               <label for="returnDate">Geri Dönüş Tarihi</label>
-              <input [(ngModel)]="returnDate" type="datetime-local" class="form-control" id="returnDate" name="returnDate"  (input)='totalAmount()'>
+              <input [(ngModel)]="returnDate" type="date" class="form-control" id="returnDate" name="returnDate" min='{{minDate}}' max='{{maxDate}}' (input)='totalAmount()'>
             </div>
            </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
         
-      <button type="button" class="btn btn-outline-success" (click)="payment()" style="float:right">
+      <button type="button" class="btn btn-dark" (click)="payment()" style="float:right">
         Ödeme Yap
           </button>
         </div>

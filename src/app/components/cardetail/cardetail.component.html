@@ -32,6 +32,7 @@
 
   <div *ngFor="let cardetail of cardetails | cardetailPipe: cardetailFilter" class="card mt-2 mr-2"
     [ngClass]="cardetail.isRentable ? 'online' : 'offline'" style="width: 18rem;margin-right: 10px;">
+
     <img *ngIf="cardetail.imagePath" [src]="imageUrl+cardetail.imagePath" class="card-img-top"
       style="object-fit: cover;" width="100" height="50%" alt="...">
     <img *ngIf="!cardetail.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top"
@@ -45,16 +46,15 @@
       <li class="list-group-item">{{ cardetail.colorName }} </li>
       <li class="list-group-item">{{ cardetail.brandName }}</li>
       <li class="list-group-item">{{ cardetail.carName }}</li>
-      <li class="list-group-item">{{ cardetail.dailyPrice }}</li>
+      <li class="list-group-item">{{ cardetail.dailyPrice  | currency: "USD" : true:"1.2-2"}}</li>
       <li class="list-group-item">{{ cardetail.description}}</li>
-      <!-- <li class="list-group-item">{{ cardetail.isRentable }} </li> -->
+      <li class="list-group-item">{{ cardetail.isRentable }} </li>
     </ul>
     <div class="card-body">
       <div class="row">
         <button type="button" routerLink="/cardetails/cardetailimage/{{ cardetail.carId }}"
           class="btn btn-outline-dark">Araba Detay</button>
-        <!-- <button type="button" class="btn btn-outline-warning" routerLink="/cardetails/customers/{{ cardetail.carId }}">Müşteri Listesi</button>
-    <button type="button" class="btn btn-outline-info">Kira Listesi</button> -->
+
       </div>
     </div>
   </div>

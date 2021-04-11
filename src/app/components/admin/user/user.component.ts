@@ -40,12 +40,7 @@ export class UserComponent implements OnInit {
     let id:number=Number(Object.values(jwtDecode(token))[0])
     this.userId=id;
     this.userService.getByUserId(id).subscribe(response=>{
-      this.user = response.data;
-      console.log(this.user)
-      this.updateUserForm.patchValue(response.data)
-      this.updatePasswordForm.patchValue({
-        email:response.data.email
-      })
+      this.user = response.data;  
     })
 
   }
@@ -55,8 +50,7 @@ export class UserComponent implements OnInit {
       userId:[''],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
-      email:['',Validators.required],
-      password:['',Validators.required]
+      email:['',Validators.required]
 
     })
   }
@@ -70,7 +64,7 @@ export class UserComponent implements OnInit {
       this.userService.updateUser(userModel).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı")
         this.localStorage.removeToken();
-        window.location.reload()
+        this.router.navigate(["/login"])    
       },responseError=>{
         this.toastrService.error("güncellenmedi")
       })
@@ -83,9 +77,9 @@ export class UserComponent implements OnInit {
   
   createupdatePasswordForm(){
     this.updatePasswordForm =this.formBuilder.group({
-      email:['',Validators.required],
-      oldPassword:['',Validators.required],
-      newPassword:['',Validators.required]
+      email:["",Validators.required],
+      oldPassword:["",Validators.required],
+      newPassword:["",Validators.required]
     })
 
   }
@@ -97,7 +91,7 @@ export class UserComponent implements OnInit {
     this.userService.changePassword(updatePassword).subscribe(response=>{
       this.toastrService.success(response.message,"başarılı")
       this.localStorage.removeToken();
-      window.location.reload()
+      this.router.navigate(["/login"])
     },responseError=>{
       this.toastrService.error("güncellenmedi")
     })

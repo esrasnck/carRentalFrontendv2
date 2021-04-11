@@ -27,7 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { UserComponent } from './components/admin/user/user.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { DatePipe } from '@angular/common';
+
 
  
 export function tokenGetter() {
@@ -58,7 +59,7 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    VatAddedPipe,
+    
 
   ],
   imports: [
@@ -79,7 +80,7 @@ export function tokenGetter() {
     BrowserAnimationsModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}, DatePipe,
   ],
   bootstrap: [AppComponent]
 })

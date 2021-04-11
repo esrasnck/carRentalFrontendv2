@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarDetail } from 'src/app/models/cardetail';
@@ -21,14 +22,24 @@ export class RentalComponent implements OnInit {
   state:number=1;
   rentals:Rental;
   message:string
+  minDate?: string = '';
+  maxDate?: string = '';
 
   @Input() carforRent:CarDetail  // I Love U Ceren Bıdık <3 :)
 
 
   constructor(private customerDetailService:CustomerdetailService,
-    private paymentService:PaymentService, private authService: AuthService,private router:Router) { }
+    private paymentService:PaymentService, private authService: AuthService,private router:Router,private datePipe:DatePipe) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    
+    this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    this.maxDate = this.datePipe.transform(
+      new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+      'yyyy-MM-dd'
+    );
+  }
 
 
    createNewRental(){
@@ -84,5 +95,15 @@ export class RentalComponent implements OnInit {
     this.paymentService.totalPrice = price * this.carforRent.dailyPrice;
   }
 
+
+  minDateChange(date: any) {
+    this.minDate = date.target.value;
+    this.maxDate = this.datePipe.transform(
+      new Date(
+        new Date(this.minDate).setFullYear(new Date().getFullYear() + 1)
+      ),
+      'yyyy-MM-dd'
+    );
+  }
 
 }
