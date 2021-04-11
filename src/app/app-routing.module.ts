@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:"admin/colors/add",component:ColorAddComponent,canActivate:[AdminGuard]},
   {path:"admin/cars/add",component:CarAddComponent,canActivate:[AdminGuard]},
   {path:"admin/cardetails",component:CardetaillistComponent,canActivate:[AdminGuard]},
-  {path:"user",component:UserComponent,canActivate:[LoginGuard]},
+  {path:"admin/user",component:UserComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent}
 

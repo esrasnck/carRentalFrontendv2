@@ -2,7 +2,7 @@
 <form [formGroup]="paymentForm"class="row g-3">
   <div class="col-12">
     <label for="inputAddress" class="form-label">Kartın Üstündeki İsim</label>
-    <input type="text" class="form-control" id="customerName" placeholder="İsim Girin">
+    <input type="text" class="form-control" id="customerName" formControlName="ownerName" placeholder="İsim Girin">
   </div>
   
   <div class="col-md-4">
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="col-12 offset-10">
-    <button type="submit" class="btn btn-primary" (click)="addPayment()">Ödeme Yap</button>
+    <button type="submit" class="btn btn-primary" (click)="addPayment()" routerLink="/cardetails" >Ödeme Yap</button>
   </div>
 </form>
 </div>

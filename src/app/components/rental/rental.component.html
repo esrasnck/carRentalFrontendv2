@@ -1,11 +1,18 @@
 
-<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#rentalModal" style="float:right" *ngIf="carforRent?.isRentable">
-  Kirala
-  </button>
+  <div  *ngIf="carforRent?.isRentable">
+    <button style="width: 100%;" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#rentalModal">
+      Kirala
+      </button>
+  </div>
+  <div *ngIf="!carforRent?.isRentable">
+    <button style="width: 100%;" type="button" class="btn btn-outline-dark" disabled data-bs-toggle="modal" data-bs-target="#rentalModal">
+      Kirada
+      </button>
+  </div>      
 
-  <span  class="text-danger"  *ngIf="!carforRent?.isRentable">
-    Araç zaten kiralık
-  </span>
+
+
+
  
   <!-- Modal -->
   <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true"  >

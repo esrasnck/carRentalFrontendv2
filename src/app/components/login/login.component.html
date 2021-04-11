@@ -1,7 +1,7 @@
 <body class="text-center">
   <main class="form-signin">
     <form [formGroup]="loginForm">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h1 class="h4 mb-3 fw-normal">Please sign in</h1>
   
       <div class="form-floating">
         <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -12,8 +12,8 @@
         <label for="floatingPassword">Password</label>
       </div>
   
-      <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="login()" [disabled]="!loginForm.valid" >Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+      <button class="w-100 btn btn-dark" type="submit" (click)="login()" >Sign in</button>
+     
     </form>
   </main>
   

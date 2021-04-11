@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 body {
     font-size: .875rem;
   }
@@ -98,3 +99,17 @@ body {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
+
+  .entryButton{
+    color: #77d0d9;
+    background-color: #262829;
+    border-color: #0dcaf0;
+    border-radius: 0% 20% 0% 20%;
+  }
+ .still{
+  font-family: 'Acme', sans-serif;
+  color: #77d0d9;
+ }
+ .btn-dark{  
+    color: #77d0d9;
+ }

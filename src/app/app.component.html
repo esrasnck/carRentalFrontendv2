@@ -1,49 +1,44 @@
 <div class="container">
   <app-navbar></app-navbar>
-
   <div class="row">
     <div class="col-md-3">
-<div class="p-3 bg-white" style="width: 280px;">
-  <a routerLink="/cardetails" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-    <span class="fs-5 fw-semibold">Tüm Arabalar</span>
-  </a>
-  <ul class="list-unstyled ps-0">
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#color-collapse" aria-expanded="true">
-       Renkler 
-      </button>
-  <app-color></app-color>
-    </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#brand-collapse" aria-expanded="true">
-        Modeller </button>
-        <app-brand></app-brand>
-   </li>
-
-  
-
-  </ul>
-</div>
-
+      <div class="p-3 bg-white" style="width: 280px;">
+        <a routerLink="/cardetails"
+          class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+          <svg class="bi me-2" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+          <span class="fs-5 fw-semibold">Tüm Arabalar</span>
+        </a>
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+              data-bs-target="#color-collapse" aria-expanded="true">
+              Renkler
+            </button>
+            <app-color></app-color>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+              data-bs-target="#brand-collapse" aria-expanded="true">
+              Modeller </button>
+            <app-brand></app-brand>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="col-md-9">
-      <br>
-      <router-outlet></router-outlet> 
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue">
+<!-- <footer class="page-footer font-small blue">
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> Sonra burası düzenlensin !</a>
+  <div class="footer-copyright offset-md-7">© 2021 Copyright:
   </div>
-  <!-- Copyright -->
 
-</footer>
+
+</footer> -->
 <!-- Footer -->
-
-

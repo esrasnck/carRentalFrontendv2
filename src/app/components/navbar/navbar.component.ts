@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     this.localStorageService.removeToken();
     this.toastrservice.success("başarı ile çıkış yaptın","aferin")
+    this.router.navigate(["/cardetails"])
   }
 
   goToAdminEdit(){

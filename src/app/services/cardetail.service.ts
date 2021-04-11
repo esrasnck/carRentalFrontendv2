@@ -1,3 +1,4 @@
+  
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,7 +13,6 @@ import { ResponseModel } from '../models/responseModel';
   providedIn: 'root'
 })
 export class CardetailService {
-
   apiUrl = environment.apiUrl;
 
   constructor(private httpClient:HttpClient) { }

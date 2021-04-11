@@ -1,9 +1,7 @@
-.online{
-    background-color:#eaf0ed;
-    
-   
-   }
-   
-   .offline{
-    background-color: rgb(250, 239, 239);
-   }
+.online {
+  background-color: #e9ebed;
+}
+
+.offline {
+  background-color: #e3c1c5;
+}
